@@ -4,4 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: [ 'element-plus/dist/index.css',],
+  app: {
+    buildAssetsDir: '/static/'
+  },
 })
