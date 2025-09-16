@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [ 'element-plus/dist/index.css',],
   app: {
-    buildAssetsDir: '/static/'
+    buildAssetsDir: '/static/',
+    baseURL: '/nuxt-cut/',
   },
 })
