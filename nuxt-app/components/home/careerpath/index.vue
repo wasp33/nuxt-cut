@@ -53,6 +53,7 @@
 </template>
 
 <style scoped>
+
 .career-path {
   width: 100vmax;
   display: flex;
@@ -116,7 +117,7 @@
   justify-content: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-size: 1rem;
-  transition: background 0.3s;
+  transition: background 0.2s, color 0.2s;
   z-index: 2;
 }
 
@@ -147,6 +148,11 @@
   color: #fff;
   border: none;
   box-shadow: 0 4px 16px rgba(33, 118, 210, 0.15);
+}
+
+.stage-inner:hover {
+  background: #2176d2;
+  color: #fff;
 }
 
 .stage-icon {

@@ -26,7 +26,19 @@
   </div>
 </div>
 </template>
-
+<script setup>
+import { useHead } from '#imports';
+useHead({
+  script: [
+    {
+      hid: '3rd-party-canvas',
+      id: 'the-script-id',
+      children: 'console.log("This is the script content.");',
+      body: true // This is the key part! It places the script in the <body>
+    }
+  ]
+});
+</script>
 <style scoped>
 *{
   margin: 0;

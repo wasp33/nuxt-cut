@@ -7,7 +7,7 @@
       <img :src="imgLogo" alt="">
     </nuxt-link>
     <!-- menu -->
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" router=true @select="handleSelect">
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :router=true @select="handleSelect">
       <el-menu-item index="/">Home</el-menu-item>
       <el-sub-menu index="2">
         <template #title>Career Pathing</template>
