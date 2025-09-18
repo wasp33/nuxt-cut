@@ -42,12 +42,12 @@ if (process.client) {
 
   // 2) 插到 <body> 尾端
   const sBody = document.createElement('script')
-  sBody.id = '_bownow_cs_' + scriptid
-  sBody.textContent = `var _bownow_cs_${scriptid} =
+  sBody.id = '_bownow_cs_' + scriptid.value
+  sBody.textContent = `var _bownow_cs_${scriptid.value} =
         document.createElement("script");
       ${sBody.id}.charset = "utf-8";
       ${sBody.id}.src =
-        "https://contents.bownow.jp/forms/${scriptid}/trace.js";
+        "https://contents.bownow.jp/forms/${scriptid.value}/trace.js";
       document
         .getElementsByTagName("head")[0]
         .appendChild(${sBody.id});`
