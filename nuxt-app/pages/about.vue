@@ -28,6 +28,8 @@
 <input type="text" v-model="scriptid" />
 </template>
 <script setup>
+import { ref } from 'vue'
+
 const scriptid = ref('sid_93a969426cf23e18dba3')
 if (process.client) {
   // 1) 插到 <head>
