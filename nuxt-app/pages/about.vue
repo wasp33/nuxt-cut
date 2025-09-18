@@ -27,17 +27,30 @@
 </div>
 </template>
 <script setup>
-import { useHead } from '#imports';
-useHead({
-  script: [
-    {
-      hid: '3rd-party-canvas',
-      id: 'the-script-id',
-      children: 'console.log("This is the script content.");',
-      body: true // This is the key part! It places the script in the <body>
-    }
-  ]
-});
+if (process.client) {
+  // 1) 插到 <head>
+  const sHead = document.createElement('script')
+  sHead.id = '_bownow_ts'
+  sHead.textContent = `var _bownow_ts = document.createElement("script");
+      _bownow_ts.charset = "utf-8";
+      _bownow_ts.src =
+        "https://contents.bownow.jp/js/UTC_373f6c2fd8a84cc0e8f9/trace.js";
+      document.getElementsByTagName("head")[0].appendChild(_bownow_ts);`
+  document.head.appendChild(sHead)
+
+  // 2) 插到 <body> 尾端
+  const sBody = document.createElement('script')
+  sBody.id = '_bownow_cs_sid_93a969426cf23e18dba3'
+  sBody.textContent = `var _bownow_cs_sid_93a969426cf23e18dba3 =
+        document.createElement("script");
+      _bownow_cs_sid_93a969426cf23e18dba3.charset = "utf-8";
+      _bownow_cs_sid_93a969426cf23e18dba3.src =
+        "https://contents.bownow.jp/forms/sid_93a969426cf23e18dba3/trace.js";
+      document
+        .getElementsByTagName("head")[0]
+        .appendChild(_bownow_cs_sid_93a969426cf23e18dba3);`
+  document.body.appendChild(sBody)
+}
 </script>
 <style scoped>
 *{
