@@ -25,8 +25,10 @@
     </div>
   </div>
 </div>
+<input type="text" v-model="scriptid" />
 </template>
 <script setup>
+const scriptid = ref('sid_93a969426cf23e18dba3')
 if (process.client) {
   // 1) 插到 <head>
   const sHead = document.createElement('script')
@@ -40,15 +42,15 @@ if (process.client) {
 
   // 2) 插到 <body> 尾端
   const sBody = document.createElement('script')
-  sBody.id = '_bownow_cs_sid_93a969426cf23e18dba3'
-  sBody.textContent = `var _bownow_cs_sid_93a969426cf23e18dba3 =
+  sBody.id = '_bownow_cs_' + scriptid
+  sBody.textContent = `var _bownow_cs_${scriptid} =
         document.createElement("script");
-      _bownow_cs_sid_93a969426cf23e18dba3.charset = "utf-8";
-      _bownow_cs_sid_93a969426cf23e18dba3.src =
-        "https://contents.bownow.jp/forms/sid_93a969426cf23e18dba3/trace.js";
+      ${sBody.id}.charset = "utf-8";
+      ${sBody.id}.src =
+        "https://contents.bownow.jp/forms/${scriptid}/trace.js";
       document
         .getElementsByTagName("head")[0]
-        .appendChild(_bownow_cs_sid_93a969426cf23e18dba3);`
+        .appendChild(${sBody.id});`
   document.body.appendChild(sBody)
 }
 </script>
