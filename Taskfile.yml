@@ -1,0 +1,37 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+  APPDIR: nuxt-app
+
+tasks:
+  default:
+    cmds:
+      - task --list-all
+    silent: true
+
+  hello:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  clean:
+    cmds:
+      - echo "clean nuxt"
+      - cd {{.APPDIR}} && npx nuxi cleanup
+  run:
+    cmds:
+      - echo "clean and run nuxt"
+      - cd {{.APPDIR}} && HOST=0 npm run dev
+  go:
+    cmds:
+      - echo "clean and run nuxt"
+      - cd {{.APPDIR}} && npx nuxi cleanup && HOST=0 npm run dev
+  enc:
+    cmds:
+      - echo "md5 encryption"
+      - echo "digiHst@ken~{{.DATE}}"
+      - echo -n "digiHst@ken~{{.DATE}}" | md5sum
+    silent: true

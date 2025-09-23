@@ -9,7 +9,7 @@
     <!-- menu -->
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :router=true @select="handleSelect">
       <el-menu-item index="/">Home</el-menu-item>
-      <el-sub-menu index="2">
+      <el-sub-menu index="2"  @click="handleSelect('2')">
         <template #title>Career Pathing</template>
         <el-menu-item index="2-1">Preparation</el-menu-item>
         <el-menu-item index="2-2">Onboarding</el-menu-item>
@@ -37,10 +37,16 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import imgLogo from '~/assets/images/general/logo/imgLogo.png';
 const activeIndex = ref('1');
+const router = useRouter();
 const handleSelect = (key, keyPath) => {
-  console.log(key, keyPath);
+  if (key === '2') {
+    router.push('/plan');
+  } else {
+    console.log(key, keyPath);
+  }
 };
 </script>
 <style scoped>
